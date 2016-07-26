@@ -1,0 +1,7 @@
+nlines=`wc - l $1 | cut -f 1 -d ' '`
+awk -v nlines=$nlines '
+    BEGIN {
+	print "number of line = " nlines;
+    }
+' $1
+
