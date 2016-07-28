@@ -3,8 +3,9 @@ import csv, sys, os, re
 from lxml import etree
 
 KEYS_DICT = {'node': {}, 'edge':{} }
-NODE_START_COL = 1
-EDGE_START_COL = 3
+NODE_START_COL = 2
+EDGE_START_COL = 4
+ID_COL         = 1
 
 def start_column(element_type):
     return NODE_START_COL if element_type == 'node' else EDGE_START_COL
@@ -28,7 +29,7 @@ def add_keys(header, element_type, root):
         KEYS_DICT[element_type][i] = attr_name
         root.append(key)
 
-def add_element(row, element_type, element_id, parent):
+def add_element(row, element_type, parent):
     '''
         <node id="6">
           <data key="labelV">person</data>
@@ -41,11 +42,11 @@ def add_element(row, element_type, element_id, parent):
         </edge>
     '''
     graph_element = etree.SubElement(parent, element_type)
-    graph_element.attrib['id'] = str(element_id)
+    graph_element.attrib['id'] = row[ID_COL]
     if element_type == 'edge':
         # First two column keys in csv are source and target
-        graph_element.attrib['source'] = row[EDGE_START_COL-2]
-        graph_element.attrib['target'] = row[EDGE_START_COL-1]
+        graph_element.attrib['source'] = row[ID_COL+1]
+        graph_element.attrib['target'] = row[ID_COL+2]
     # Parse attributes
     for i in range(start_column(element_type), len(row)):
         if len(row[i]) == 0: continue # sometimes there's an empty element at the end
@@ -70,7 +71,6 @@ def csv_2_graphml(input_file):
     element_type = ''
 
     # Parse rows
-    element_id = 1
     for row in csv_reader:
         # Skip blank rows
         if len(row) > 0:
@@ -80,8 +80,7 @@ def csv_2_graphml(input_file):
                 add_keys(row, element_type, graphml_root)
             elif row[0] == '' and element_type != '':
                 # Add Element (node or edge)
-                add_element(row, element_type, element_id, graph)
-                element_id += 1
+                add_element(row, element_type, graph)
 
     graphml_root.append(graph)
     return etree.tostring(graphml_root, pretty_print=True)

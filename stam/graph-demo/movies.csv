@@ -1,44 +1,44 @@
-node,type(string),name(string),
-,movie,Ocean's eleven,
-,actor,George Clooney,
-,actor,Brad Pitt,
-,actor,Matt Damon,
-,actor,Julia Roberts,
-,movie,"O Brother, Where Art Thou?",
-,actor,John Goodman,
-,actor,John Turturro,
-,actor,Holly Hunter,
-,movie,Barton Fink,
-,movie,The Big Lebowski,
-,actor,Jeff Bridges,
-,actor,Julianne Moore,
-,movie,The Hours,
-,actor,Meryl Streep,
-,actor,Nicole Kidman,
-,movie,The Deer Hunter,
-,actor,Robert De Niro,
-,actor,Christopher Walken,
-,movie,Falling in love,
-edge,source,target,relation(string)
-,2,1,plays
-,2,6,plays
-,3,1,plays
-,4,1,plays
-,5,1,plays
-,7,6,plays
-,8,6,plays
-,9,6,plays
-,7,10,plays
-,8,10,plays
-,7,11,plays
-,8,11,plays
-,12,11,plays
-,13,11,plays
-,13,14,plays
-,15,14,plays
-,16,14,plays
-,15,17,plays
-,18,17,plays
-,19,17,plays
-,15,20,plays
-,18,20,plays
+node,id,type(string),name(string),
+,1,movie,Ocean's eleven,
+,2,actor,George Clooney,
+,3,actor,Brad Pitt,
+,4,actor,Matt Damon,
+,5,actor,Julia Roberts,
+,6,movie,"O Brother, Where Art Thou?",
+,7,actor,John Goodman,
+,8,actor,John Turturro,
+,9,actor,Holly Hunter,
+,10,movie,Barton Fink,
+,11,movie,The Big Lebowski,
+,12,actor,Jeff Bridges,
+,13,actor,Julianne Moore,
+,14,movie,The Hours,
+,15,actor,Meryl Streep,
+,16,actor,Nicole Kidman,
+,17,movie,The Deer Hunter,
+,18,actor,Robert De Niro,
+,19,actor,Christopher Walken,
+,20,movie,Falling in love,
+edge,21,source,target,relation(string)
+,22,2,1,plays
+,23,2,6,plays
+,24,3,1,plays
+,25,4,1,plays
+,26,5,1,plays
+,27,7,6,plays
+,28,8,6,plays
+,29,9,6,plays
+,30,7,10,plays
+,31,8,10,plays
+,32,7,11,plays
+,33,8,11,plays
+,34,12,11,plays
+,35,13,11,plays
+,36,13,14,plays
+,37,15,14,plays
+,38,16,14,plays
+,39,15,17,plays
+,40,18,17,plays
+,41,19,17,plays
+,42,15,20,plays
+,43,18,20,plays
