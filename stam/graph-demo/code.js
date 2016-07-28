@@ -50,18 +50,34 @@ function getRandomInt(min, max) {
 
 function enrichElements() {
   for(var i=0 ; i < cyElements.nodes.length ; i++) {
+    type = cyElements.nodes[i].data.type;
+    addProp(cyElements.nodes[i].data, 'faveColor', faveColor[type == 'actor' ? 0 : 1]);
+    addProp(cyElements.nodes[i].data, 'faveShape', faveShape[type == 'actor' ? 2 : 1]);
+    addProp(cyElements.nodes[i].data, 'weight', 65);
+  }
+  for(var i=0 ; i < cyElements.edges.length ; i++) {
+    addProp(cyElements.edges[i].data, 'faveColor', faveColor[2]);
+    addProp(cyElements.edges[i].data, 'strength', 100);//getRandomInt(60,100));
+    if(getRandomInt(1,4)>=3)
+      addProp(cyElements.edges[i].data, 'classes', 'questionable');
+  }
+}
+
+/*
+function enrichElements() {
+  for(var i=0 ; i < cyElements.nodes.length ; i++) {
     addProp(cyElements.nodes[i].data, 'faveColor', faveColor[getRandomInt(0,3)]);
     addProp(cyElements.nodes[i].data, 'faveShape', faveShape[getRandomInt(0,3)]);
     addProp(cyElements.nodes[i].data, 'weight', getRandomInt(45,70));
   }
   for(var i=0 ; i < cyElements.edges.length ; i++) {
     addProp(cyElements.edges[i].data, 'faveColor', faveColor[getRandomInt(0,3)]);
-    addProp(cyElements.edges[i].data, 'strength', getRandomInt(60,100));
+    addProp(cyElements.edges[i].data, 'strength', cyElements.edges[i].data.weight * 100);//getRandomInt(60,100));
     if(getRandomInt(1,4)>=3)
       addProp(cyElements.edges[i].data, 'classes', 'questionable');
   }
 }
-
+*/
 function startCY() {
 
   $('#cy').cytoscape({
@@ -97,8 +113,9 @@ function startCY() {
           'line-color': 'data(faveColor)',
           'source-arrow-color': 'data(faveColor)',
           'target-arrow-color': 'data(faveColor)',
-          'label': 'data(label)',
-          //'edge-text-rotation': 'autorotate',
+          'label': 'data(labelE)',
+          'strength': 'data(strength)',
+        //'edge-text-rotation': 'autorotate',
           'text-valign': 'top',
           'text-halign': 'right',
           'text-background-color': 'white',
@@ -131,6 +148,7 @@ function startCY() {
 //  $("#jsonArea").val(JSON.stringify(x2js.xml_str2json($("#xmlArea").val())));
 //}
 function importGraph(xmlGraphData) {
+  console.log(xmlGraphData);
   parseElementsfromGraphML(xmlGraphData);
   enrichElements();
   //console.log(JSON.stringify(cyElements));
@@ -138,7 +156,7 @@ function importGraph(xmlGraphData) {
 }
 
 $(function() { // on dom ready
-  $.get( "tinker-modern-graphml.xml", function(xmlGraphData) {
+  $.get( "movies.xml", function(xmlGraphData) {
     //console.log(xmlGraphData);
     importGraph(xmlGraphData);
   });
