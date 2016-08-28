@@ -1,0 +1,20 @@
+git clone https://github.com/mnielsen/neural-networks-and-deep-learning.git
+git init
+git add *
+git commit -m "first commit"
+git config --global user.email "bezelfree@gmail.com"
+git config --global user.name MrUbuntu96
+git commit -m "first commit"
+git remote add origin https://github.com/MrUbuntu96/Playground.git
+git push -u origin master
+
+git add *
+git status
+git commit -m "with xml parsing"
+git push -u origin master
+
+rm some_files
+git status
+git add -u
+git status
+git commit -m "deleted files manually"

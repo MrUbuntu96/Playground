@@ -1,6 +1,6 @@
 var cyElements = {
   nodes: [],
-  edges: [],
+  edges: []
 }
 
 function addProp(obj, key, val) {
@@ -156,8 +156,11 @@ function importGraph(xmlGraphData) {
 }
 
 $(function() { // on dom ready
-  $.get( "movies.xml", function(xmlGraphData) {
-    //console.log(xmlGraphData);
-    importGraph(xmlGraphData);
+  // Issue an ajax GET request to read the xml file
+  $.get( "movies.xml",
+        { "_": $.now() }, // required to invalidate the cache
+        function(xmlGraphData) {
+          // import the graph (from XML to JSON)
+          importGraph(xmlGraphData);
   });
 }); // on dom ready

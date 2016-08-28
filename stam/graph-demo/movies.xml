@@ -1,0 +1,153 @@
+<graphml>
+  <key id="type" for="node" attr.name="type" attr.type="string"/>
+  <key id="name" for="node" attr.name="name" attr.type="string"/>
+  <key id="relation" for="edge" attr.name="relation" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <node id="1">
+      <data key="type">movie</data>
+      <data key="name">Ocean's eleven</data>
+    </node>
+    <node id="2">
+      <data key="type">actor</data>
+      <data key="name">George Clooney</data>
+    </node>
+    <node id="3">
+      <data key="type">actor</data>
+      <data key="name">Brad Pitt</data>
+    </node>
+    <node id="4">
+      <data key="type">actor</data>
+      <data key="name">Matt Damon</data>
+    </node>
+    <node id="5">
+      <data key="type">actor</data>
+      <data key="name">Julia Roberts</data>
+    </node>
+    <node id="6">
+      <data key="type">movie</data>
+      <data key="name">O Brother, Where Art Thou?</data>
+    </node>
+    <node id="7">
+      <data key="type">actor</data>
+      <data key="name">John Goodman</data>
+    </node>
+    <node id="8">
+      <data key="type">actor</data>
+      <data key="name">John Turturro</data>
+    </node>
+    <node id="9">
+      <data key="type">actor</data>
+      <data key="name">Holly Hunter</data>
+    </node>
+    <node id="10">
+      <data key="type">movie</data>
+      <data key="name">Barton Fink</data>
+    </node>
+    <node id="11">
+      <data key="type">movie</data>
+      <data key="name">The Big Lebowski</data>
+    </node>
+    <node id="12">
+      <data key="type">actor</data>
+      <data key="name">Jeff Bridges</data>
+    </node>
+    <node id="13">
+      <data key="type">actor</data>
+      <data key="name">Julianne Moore</data>
+    </node>
+    <node id="14">
+      <data key="type">movie</data>
+      <data key="name">The Hours</data>
+    </node>
+    <node id="15">
+      <data key="type">actor</data>
+      <data key="name">Meryl Streep</data>
+    </node>
+    <node id="16">
+      <data key="type">actor</data>
+      <data key="name">Nicole Kidman</data>
+    </node>
+    <node id="17">
+      <data key="type">movie</data>
+      <data key="name">The Deer Hunter</data>
+    </node>
+    <node id="18">
+      <data key="type">actor</data>
+      <data key="name">Robert De Niro</data>
+    </node>
+    <node id="19">
+      <data key="type">actor</data>
+      <data key="name">Christopher Walken</data>
+    </node>
+    <node id="20">
+      <data key="type">movie</data>
+      <data key="name">Falling in love</data>
+    </node>
+    <edge id="22" source="2" target="1">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="23" source="2" target="6">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="24" source="3" target="1">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="25" source="4" target="1">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="26" source="5" target="1">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="27" source="7" target="6">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="28" source="8" target="6">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="29" source="9" target="6">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="30" source="7" target="10">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="31" source="8" target="10">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="32" source="7" target="11">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="33" source="8" target="11">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="34" source="12" target="11">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="35" source="13" target="11">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="36" source="13" target="14">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="37" source="15" target="14">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="38" source="16" target="14">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="39" source="15" target="17">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="40" source="18" target="17">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="41" source="19" target="17">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="42" source="15" target="20">
+      <data key="relation">plays</data>
+    </edge>
+    <edge id="43" source="18" target="20">
+      <data key="relation">plays</data>
+    </edge>
+  </graph>
+</graphml>

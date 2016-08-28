@@ -1,0 +1,4 @@
+#,Generated randomly,,,
+#,,,,
+node,id,type(string),x(float),y(float)
+,100001,loc,12.34,54.32

@@ -1,0 +1,17 @@
+<root>
+  <prod>
+    <name>david</name>
+    <address>bla bla</address>
+    <tel>123</tel>
+  </prod>
+  <prod>
+    <name>john</name>
+    <address>go go</address>
+    <tel>456</tel>
+  </prod>
+  <prod>
+    <name>doug</name>
+    <address>da da</address>
+    <tel>789</tel>
+  </prod>
+</root>
