@@ -59,6 +59,8 @@ def csv_2_graphml(input_file):
         '''
         for i in range(start_column(element_type), len(header)):
             if len(header[i]) == 0: continue
+            if not ('(' in header[i] and ')' in header[i]):
+                sys.exit('Missing type info in header %d' % i)
             (attr_name, attr_type, foo) = re.split('\(|\)', header[i]) # name(string)
             key = etree.SubElement(parent, 'key')
             key.attrib['id'] = attr_name
@@ -141,7 +143,7 @@ if __name__ == '__main__':
     if len(sys.argv) >= 2:
         input_file = os.path.basename(sys.argv[1])
         base_filename = os.path.splitext(input_file)[0]
-        print '\nConverting movies.csv ==> movies.xml (graphML) .....',
+        print '\nConverting %s.csv ==> %s.xml (graphML) .....' % (base_filename, base_filename),
         xml_str = csv_2_graphml(base_filename + '.csv')
         xml_output_file = open(base_filename + '.xml', 'w')
         xml_output_file.write(xml_str)
