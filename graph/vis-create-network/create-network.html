@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <title>Network | Random nodes</title>
+
+  <style type="text/css">
+    body {
+      font: 10pt sans;
+    }
+    #mynetwork {
+      width: 1000px;
+      height: 600px;
+      border: 1px solid lightgray;
+    }
+
+    #message {
+      color:darkred;
+      max-width:600px;
+      font-size:16px;
+      cursor:pointer;
+      text-decoration: underline;
+    }
+  </style>
+
+  <script type="text/javascript" src="../../lib/jquery/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="./xml2json.js"></script>
+  <script type="text/javascript" src="./generate-vis-network.js"></script>
+  <script type="text/javascript" src="./vis.js"></script>
+  <link href="./vis.css" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript">
+    var nodes = null;
+    var edges = null;
+    var network = null;
+    var setSmooth = false;
+
+    function destroy() {
+      if (network !== null) {
+        network.destroy();
+        network = null;
+      }
+    }
+
+    function draw(networkData) {
+      destroy();
+      //var nodeCount = document.getElementById('nodeCount').value;
+      //if (nodeCount > 100) {
+      //  document.getElementById("message").innerHTML = '<a onclick="disableSmoothCurves()">You may want to disable dynamic smooth curves for better performance with a large amount of nodes and edges. Click here to disable them.</a>';
+      //}
+      //else if (setSmooth === false) {
+      //  document.getElementById("message").innerHTML = '';
+      //}
+      // create a network
+      var container = document.getElementById('mynetwork');
+      var options = {
+        physics:{ stabilization: false },
+        nodes: {
+          scaling: {
+            label: {enabled: true }
+          }
+        },
+        edges: {
+          smooth: {
+            type:'continuous'
+          }
+        }
+      };
+      network = new vis.Network(container, networkData, options);
+    }
+
+    function disableSmoothCurves() {
+      setSmooth = true;
+      network.setOptions({edges:{smooth:{type:'continuous'}}});
+      document.getElementById("message").innerHTML = '<a onclick="enableSmoothCurves()">Click here to reenable the dynamic smooth curves.</a>';
+    }
+
+    function enableSmoothCurves() {
+      setSmooth = false;
+      document.getElementById("message").innerHTML = '<a onclick="disableSmoothCurves()">You may want to disable dynamic smooth curves for better performance with a large amount of nodes and edges. Click here to disable them.</a>';
+      network.setOptions({edges:{smooth:{type:'dynamic'}}});
+    }
+
+    function init() { // on dom ready
+      // Issue an ajax GET request to read the xml file
+      $.get( "../r1.xml",
+            { "_": $.now() }, // required to invalidate the cache
+            function(xmlGraphData) {
+              // import the graph (from XML to JSON)
+              console.log(xmlGraphData);
+              networkData = parseElementsfromGraphML(xmlGraphData);
+              console.log(networkData );
+              draw(networkData);
+      });
+    }
+
+
+  </script>
+</head>
+<body onload="init()">
+<p>
+  Generate a random network with nodes and edges.
+</p>
+<p>
+  <!--form onsubmit="draw(); return false;">
+  <label for="nodeCount">Number of nodes:</label>
+  <input id="nodeCount" type="text" value="10" style="width: 50px;">
+  <input type="button" value="Go" onclick="draw()">
+  </form-->
+</p>
+<span id="message"></span>
+<div id="mynetwork"></div>
+
+</body>
+</html>

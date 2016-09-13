@@ -1,0 +1,4 @@
+#,This sheet is filled automatically,,,,
+#,,,,,
+node,id,type(string),name(string),num(string),group(string)
+,10001,P,james,123456789,ENG1

@@ -1,0 +1,4 @@
+#,Generated randomly,,,,,
+#,,,,,,
+edge,id,source,target,type(string),time(string),directed(int)
+,2000001,3,5,loc,2016-08-24T14:26:35,1

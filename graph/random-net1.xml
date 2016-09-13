@@ -1,0 +1,139 @@
+<graphml>
+  <key id="degree" for="node" attr.name="degree" attr.type="int"/>
+  <key id="label" for="node" attr.name="label" attr.type="string"/>
+  <key id="value" for="node" attr.name="value" attr.type="int"/>
+  <graph id="G" edgedefault="directed">
+    <node id="0">
+      <data key="degree">6</data>
+      <data key="label">0</data>
+      <data key="value">1</data>
+    </node>
+    <node id="1">
+      <data key="degree">11</data>
+      <data key="label">1</data>
+      <data key="value">3</data>
+    </node>
+    <node id="2">
+      <data key="degree">10</data>
+      <data key="label">2</data>
+      <data key="value">2</data>
+    </node>
+    <node id="3">
+      <data key="degree">8</data>
+      <data key="label">3</data>
+      <data key="value">2</data>
+    </node>
+    <node id="4">
+      <data key="degree">5</data>
+      <data key="label">4</data>
+      <data key="value">1</data>
+    </node>
+    <node id="5">
+      <data key="degree">10</data>
+      <data key="label">5</data>
+      <data key="value">3</data>
+    </node>
+    <node id="6">
+      <data key="degree">4</data>
+      <data key="label">6</data>
+      <data key="value">1</data>
+    </node>
+    <node id="7">
+      <data key="degree">2</data>
+      <data key="label">7</data>
+      <data key="value">1</data>
+    </node>
+    <node id="8">
+      <data key="degree">6</data>
+      <data key="label">8</data>
+      <data key="value">1</data>
+    </node>
+    <node id="9">
+      <data key="degree">3</data>
+      <data key="label">9</data>
+      <data key="value">1</data>
+    </node>
+    <node id="10">
+      <data key="degree">5</data>
+      <data key="label">10</data>
+      <data key="value">1</data>
+    </node>
+    <node id="11">
+      <data key="degree">4</data>
+      <data key="label">11</data>
+      <data key="value">1</data>
+    </node>
+    <node id="12">
+      <data key="degree">8</data>
+      <data key="label">12</data>
+      <data key="value">2</data>
+    </node>
+    <node id="13">
+      <data key="degree">8</data>
+      <data key="label">13</data>
+      <data key="value">2</data>
+    </node>
+    <node id="14">
+      <data key="degree">4</data>
+      <data key="label">14</data>
+      <data key="value">1</data>
+    </node>
+    <node id="15">
+      <data key="degree">10</data>
+      <data key="label">15</data>
+      <data key="value">2</data>
+    </node>
+    <edge id="0" source="0" target="6"/>
+    <edge id="1" source="0" target="13"/>
+    <edge id="2" source="0" target="9"/>
+    <edge id="3" source="1" target="15"/>
+    <edge id="4" source="1" target="14"/>
+    <edge id="5" source="1" target="0"/>
+    <edge id="6" source="1" target="11"/>
+    <edge id="7" source="1" target="12"/>
+    <edge id="8" source="1" target="9"/>
+    <edge id="9" source="1" target="2"/>
+    <edge id="10" source="1" target="7"/>
+    <edge id="11" source="1" target="6"/>
+    <edge id="12" source="2" target="5"/>
+    <edge id="13" source="2" target="13"/>
+    <edge id="14" source="2" target="3"/>
+    <edge id="15" source="2" target="11"/>
+    <edge id="16" source="2" target="7"/>
+    <edge id="17" source="2" target="10"/>
+    <edge id="18" source="2" target="8"/>
+    <edge id="19" source="2" target="9"/>
+    <edge id="20" source="2" target="15"/>
+    <edge id="21" source="3" target="0"/>
+    <edge id="22" source="3" target="13"/>
+    <edge id="23" source="3" target="5"/>
+    <edge id="24" source="3" target="10"/>
+    <edge id="25" source="3" target="1"/>
+    <edge id="26" source="3" target="4"/>
+    <edge id="27" source="3" target="15"/>
+    <edge id="28" source="4" target="13"/>
+    <edge id="29" source="5" target="11"/>
+    <edge id="30" source="5" target="10"/>
+    <edge id="31" source="5" target="14"/>
+    <edge id="32" source="5" target="1"/>
+    <edge id="33" source="5" target="4"/>
+    <edge id="34" source="5" target="12"/>
+    <edge id="35" source="5" target="8"/>
+    <edge id="36" source="8" target="14"/>
+    <edge id="37" source="12" target="6"/>
+    <edge id="38" source="12" target="4"/>
+    <edge id="39" source="12" target="11"/>
+    <edge id="40" source="12" target="15"/>
+    <edge id="41" source="12" target="8"/>
+    <edge id="42" source="12" target="14"/>
+    <edge id="43" source="13" target="8"/>
+    <edge id="44" source="13" target="6"/>
+    <edge id="45" source="13" target="10"/>
+    <edge id="46" source="13" target="15"/>
+    <edge id="47" source="15" target="0"/>
+    <edge id="48" source="15" target="4"/>
+    <edge id="49" source="15" target="8"/>
+    <edge id="50" source="15" target="10"/>
+    <edge id="51" source="15" target="5"/>
+  </graph>
+</graphml>
