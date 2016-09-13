@@ -35,8 +35,8 @@ KEYS_DICT = {'node': {}, 'edge':{} }
 NODE_START_COL = 2
 EDGE_START_COL = 4
 EDGE_ID_COL    = 1
-SOURCE_NODE_COL = 2
-TARGET_NODE_COL = 3
+FROM_NODE_COL = 2
+TO_NODE_COL = 3
 
 def csv_2_graphml(input_file):
 
@@ -89,8 +89,8 @@ def csv_2_graphml(input_file):
         graph_element.attrib['id'] = row[EDGE_ID_COL]
         if element_type == 'edge':
             # First two column keys in csv are source and target
-            graph_element.attrib['source'] = row[SOURCE_NODE_COL]
-            graph_element.attrib['target'] = row[TARGET_NODE_COL]
+            graph_element.attrib['from'] = row[FROM_NODE_COL]
+            graph_element.attrib['to'] = row[TO_NODE_COL]
         # Parse attributes
         for i in range(start_column(element_type), len(row)):
             if len(row[i]) == 0: continue # sometimes there's an empty element at the end
@@ -128,6 +128,10 @@ def csv_2_graphml(input_file):
             elif row[0] == '' and element_type != '':
                 # Add Element (node or edge)
                 add_element(row, element_type, graph_root)
+            elif row[0] == '#':
+                pass # Comment
+            else:
+                print 'Bad row: %s' % row
 
     graphml_root.append(graph_root)
     return etree.tostring(graphml_root, pretty_print=True)

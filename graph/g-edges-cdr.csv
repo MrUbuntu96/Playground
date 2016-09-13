@@ -1,4 +1,0 @@
-#,Generated randomly,,,,,
-#,,,,,,
-edge,id,source,target,type(string),time(string),directed(int)
-,1000001,1,2,cdr,2016-08-24T14:26:35,0
