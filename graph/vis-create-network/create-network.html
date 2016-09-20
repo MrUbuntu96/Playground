@@ -80,9 +80,9 @@
       network.setOptions({edges:{smooth:{type:'dynamic'}}});
     }
 
-    function init() { // on dom ready
+    function load() {
       // Issue an ajax GET request to read the xml file
-      $.get( "../r1.xml",
+      $.get( "../" + $('#input_file').val(),
             { "_": $.now() }, // required to invalidate the cache
             function(xmlGraphData) {
               // import the graph (from XML to JSON)
@@ -96,18 +96,15 @@
 
   </script>
 </head>
-<body onload="init()">
+<body>
 <p>
-  Generate a random network with nodes and edges.
+  Generate a random network
+  <form><table> <!--must include return false!!!-->
+    <td>Input file:</td>
+    <td><input id='input_file' value='n1.xml'></td>
+    <td>&nbsp;<button onclick='load(); return false;'>GO</button></td>
+  </table></form>
 </p>
-<p>
-  <!--form onsubmit="draw(); return false;">
-  <label for="nodeCount">Number of nodes:</label>
-  <input id="nodeCount" type="text" value="10" style="width: 50px;">
-  <input type="button" value="Go" onclick="draw()">
-  </form-->
-</p>
-<span id="message"></span>
 <div id="mynetwork"></div>
 
 </body>

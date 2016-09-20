@@ -4,7 +4,7 @@
 '''
     Input:
         Generate communication network for a working group
-        N - sze of the group
+        N - size of the group
         Hubs - 10% * N ± 5%
         Max out edges: 30
         Min eges : uniform distribution 0-5
@@ -13,7 +13,7 @@
 
 '''
 
-import csv, sys, os, re, time, math, random
+import csv, sys, os, re, time, math, random, argparse
 import numpy as np
 from numpy import random as rand
 
@@ -24,6 +24,8 @@ def print_obj(obj):
     print '\n'.join("%s: %s" % item for item in attrs.items())
     print '------'
 
+def condition(n, p):
+    return n if rand.random() > p else 0
 
 class Node:
     def __init__(self, id):
@@ -32,76 +34,80 @@ class Node:
         self.value = 1
         self.connections = []
 
-    def connect(self, node):
-        self.connections.append(node)
-
     def degree(self):
         return len(self.connections)
 
-    def connected(self, node):
+    def connect(self, node):
+        self.connections.append(node)
+        self.value = 1 + self.degree() / 3
+        self.label = '%d(%d)' %(self.id, self.degree())
+
+    def is_connected(self, node):
         return node in self.connections
 
 
 class Edge:
-    count = 0
-    def __init__(self, _from, _to):
-        self._from = _from
-        self._to = _to
+    count = 1
+    def __init__(self, from_node, to_node):
+        self.from_node = from_node
+        self.to_node = to_node
         self.id = Edge.count
         Edge.count += 1
 
 
 class Network:
-    def __init__(self, size):
+    def __init__(self, size, low, high, spike, prob):
         self.node = []
         self.edge = []
         self.size = size
+        self.edges_low  = low
+        self.edges_high = high
+        self.edges_spike = spike
+        self.spike_prob = prob
 
-    def add_edge(self, _from, _to):
-        self.edge.append(Edge(_from, _to))
+    def generate(self):
 
-    def create_nodes(self):
-        for i in xrange(self.size):
-            self.node.append(Node(i))
+        def create_nodes():
+            for i in xrange(self.size):
+                self.node.append(Node(i))
 
-    def create_edge(self, _from, _to):
-        from_node = self.node[_from]
-        to_node = self.node[_to]
-        if _to == _from or from_node.connected(_to):
-            # already connected
-            return False
-        else:
-            self.add_edge(_from, _to)
-            from_node.connect(_to)
-            to_node.connect(_from)
-            if from_node.degree() > 9:
-                from_node.value = 3
-            elif to_node.degree() > 6:
-                to_node.value = 2
+        def get_edge_count(node):
+            base = rand.random_integers(self.edges_low, self.edges_high)
+            return min(base +  condition(self.edges_spike, self.spike_prob), self.size-1) - node.degree()
+
+        def create_edge(from_node, to_node):
+            self.edge.append(Edge(from_node, to_node))
+            from_node.connect(to_node)
+            to_node.connect(from_node)
             #print '%d => %d' % (_from, _to)
-            return True
 
-    def generate_random_edges(self):
-      for _from in xrange(self.size):
-        count = min(rand.random_integers(1, 3) +  (rand.random_integers(1,10) > 8) * 7, self.size-1) - self.node[_from].degree()
-        if count > 0:
-            connections = 0
-            for _to in rand.permutation(self.size):
-                if connections < count:
-                    if self.create_edge(_from, _to):
+        # start here
+        create_nodes()
+
+        for _from in xrange(self.size):
+        #    print 'from=%d' % _from
+            from_node = self.node[_from]
+            n = get_edge_count(from_node)
+            if n > 0:
+                connections = 0
+                for _to in rand.permutation(self.size):
+                #    print 'to=%d' % _to
+                    to_node = self.node[_to]
+                    if _to != _from and not from_node.is_connected(to_node):
+                        create_edge(from_node, to_node)
                         connections += 1
-                else:
-                    break
+                        if connections == n:
+                            break
 
     def dump(self, outf):
         writer = csv.writer(outf)
-        writer.writerow( ('node', 'id', 'degree(int)', 'label(string)', 'value(int)') )
+        writer.writerow( ('NODE', 'id(int)', 'degree(int)', 'label(string)', 'value(int)') )
         for node in self.node:
             writer.writerow( ('', node.id, len(node.connections), node.label, node.value) )
         writer.writerow( ('' ) )
-        writer.writerow( ('edge', 'id', 'from', 'to') )
+        writer.writerow( ('EDGE', 'id(int)', 'from(int)', 'to(int)') )
         for edge in self.edge:
-            writer.writerow( ('', edge.id, edge._from, edge._to) )
+            writer.writerow( ('', edge.id, edge.from_node.id, edge.to_node.id) )
 
 #        for i in xrange(self.size):
 #            outf.write('node %s' % self.node[i].label)
@@ -109,25 +115,20 @@ class Network:
 
 
 if __name__ == '__main__':
-    network = Network(size=16)
-    network.create_nodes()
-    network.generate_random_edges()
+    parser = argparse.ArgumentParser(description='Example with non-optional arguments')
+    parser.add_argument('--size',   type=int, dest='size', default=20)
+    parser.add_argument('--low',    type=int, dest='low', default=1)
+    parser.add_argument('--high',   type=int, dest='high', default=3)
+    parser.add_argument('--spike',  type=int, dest='spike', default=7)
+    parser.add_argument('--prob',   type=float, dest='prob', default=0.8)
+    args = parser.parse_args()
+
+    sys.stderr.write(str(args) + '\n\n')
+
+    network = Network(  size = args.size,
+                        low = args.low,
+                        high = args.high,
+                        spike = args.spike,
+                        prob = args.prob )
+    network.generate()
     network.dump(sys.stdout)
-
-
-'''
-    def create_edge(self, _from, _to):
-        if _to == _from or _to in self.node[_from].connections:
-            # already connected
-            return False
-        else:
-            self.edge.append(Edge(_from, _to))
-            self.node[_from].connections.append(_to)
-            self.node[_to].connections.append(_from)
-            if len(self.node[_from].connections) > 6:
-                self.node[_from].value = 2;
-            if len(self.node[_to].connections)   > 9:
-                self.node[_to].value = 3;
-            #print '%d => %d' % (_from, _to)
-            return True
-'''

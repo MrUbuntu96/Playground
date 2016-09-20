@@ -31,7 +31,9 @@
 import csv, sys, os, re
 from lxml import etree
 
-KEYS_DICT = {'node': {}, 'edge':{} }
+NODE_HEADER = 'NODE'
+EDGE_HEADER = 'EDGE'
+KEYS_DICT = {'NODE': {}, 'EDGE':{} }
 NODE_START_COL = 2
 EDGE_START_COL = 4
 EDGE_ID_COL    = 1
@@ -47,7 +49,7 @@ def csv_2_graphml(input_file):
         '''
             return the column index where key/value pairs start in the CSV table
         '''
-        return NODE_START_COL if element_type == 'node' else EDGE_START_COL
+        return NODE_START_COL if element_type == NODE_HEADER else EDGE_START_COL
 
     def add_keys(header, element_type, parent):
         '''
@@ -87,7 +89,7 @@ def csv_2_graphml(input_file):
 
         graph_element = etree.SubElement(parent, element_type)
         graph_element.attrib['id'] = row[EDGE_ID_COL]
-        if element_type == 'edge':
+        if element_type == EDGE_HEADER:
             # First two column keys in csv are source and target
             graph_element.attrib['from'] = row[FROM_NODE_COL]
             graph_element.attrib['to'] = row[TO_NODE_COL]
@@ -111,30 +113,30 @@ def csv_2_graphml(input_file):
     csv_reader = csv.reader(csv_file)
 
     # Create graph element
-    graphml_root = etree.Element('graphml')
-    graph_root = etree.Element('graph')
-    graph_root.attrib['id'] = 'G'
-    graph_root.attrib['edgedefault'] = 'directed'
+    xmldoc = etree.Element('graphml')
+    graph = etree.Element('graph')
+    graph.attrib['id'] = 'G'
+    graph.attrib['edgedefault'] = 'directed'
     element_type = ''
 
     # Parse rows
     for row in csv_reader:
         # Skip blank rows
         if len(row) > 0:
-            if row[0] == 'node' or row[0] == 'edge':
+            if row[0] == NODE_HEADER or row[0] == EDGE_HEADER:
                 # Start edge or node section
                 element_type = row[0]
-                add_keys(row, element_type, graphml_root)
+                add_keys(row, element_type, xmldoc)
             elif row[0] == '' and element_type != '':
                 # Add Element (node or edge)
-                add_element(row, element_type, graph_root)
+                add_element(row, element_type, graph)
             elif row[0] == '#':
                 pass # Comment
             else:
                 print 'Bad row: %s' % row
 
-    graphml_root.append(graph_root)
-    return etree.tostring(graphml_root, pretty_print=True)
+    xmldoc.append(graph)
+    return etree.tostring(xmldoc, pretty_print=True)
     #
     #----end-of-csv_2_graphml-----
     #

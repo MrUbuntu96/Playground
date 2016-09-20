@@ -13,7 +13,7 @@ function parseElementsfromGraphML(xmlGraph) {
   var jsonGraph = x2js.xml2json(xmlGraph);
 
   // Nodes
-  var graphNodes = jsonGraph.graphml.graph.node;
+  var graphNodes = jsonGraph.graphml.graph.NODE;
   for(var i=0 ; i < graphNodes.length ; i++) {
     visElements.nodes[i] = new Object();
     //addProp(visElements.nodes[i], 'data', {} );
@@ -26,7 +26,7 @@ function parseElementsfromGraphML(xmlGraph) {
   }
 
   // Edges
-  var graphEdges = jsonGraph.graphml.graph.edge;
+  var graphEdges = jsonGraph.graphml.graph.EDGE;
   for(var i=0 ; i < graphEdges.length ; i++) {
     visElements.edges[i] = new Object();
     //addProp(visElements.edges[i], 'data', {});
