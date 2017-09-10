@@ -1,0 +1,131 @@
+[
+  {
+    "__object_type" : "@@@person",
+  	"id": "p01",
+  	"first_name": "John Fitzgerald",
+  	"last_name": "Kennedy",
+  	"gender": "M",
+  	"birth_date": {
+  		"text": "May 29 1917",
+  		"structured_date": {
+				"day": 29,
+				"month": 5,
+				"year": 1917
+  		}
+  	},
+  	"birth_place": "Brookline, Massachusetts",
+  	"death_date": {
+  		"text": "Nov 22 1963",
+  		"structured_date": {
+				"day": 22,
+				"month": 11,
+				"year": 1963
+  		}
+  	}
+  },
+
+  {
+    "__object_type" : "@@@person",
+    "id": "p02",
+  	"first_name": "Jacqueline Lee",
+  	"last_name": "Bouvier",
+  	"gender": "F",
+  	"married_surname": "Kennedy Onassis",
+  	"birth_date": {
+  		"text": "July 28 1929",
+  		"structured_date": {
+				"day": 28,
+				"month": 7,
+				"year": 1929
+  		}
+  	},
+  	"death_date": {
+  		"text": "May 19 1994",
+  		"structured_date": {
+				"day": 19,
+				"month": 5,
+				"year": 1994
+  		}
+  	}
+  },
+
+  {
+    "__object_type": "@@@family",
+  	"id": "f02",
+  	"status": "married",
+  	"husband": {
+  		"id": "p05",
+  		"name": "Joseph Patrick Kennedy"
+  	},
+  	"wife": {
+  		"id": "p06",
+  		"name": "Rose Kennedy (born Fitzgerald)"
+  	},
+  	"marriage_date": {
+  		"text": "1914",
+  		"structured_date": {
+  			"first_date": {
+  				"year": 1914,
+  				"type": "exact",
+  				"class_name": "SingleDate"
+  			}
+  		}
+  	},
+  	"children": [
+  		{
+  			"child": {
+  				"id": "p10",
+  				"name": "Joseph Patrick Kennedy, Jr."
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "p01",
+  				"name": "John Fitzgerald Kennedy"
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "p11",
+  				"name": "Rosemary Kennedy"
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "p12",
+  				"name": "Kathleen (Kick) Agnes \"Kick\" Cavendish (born Kennedy)"
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "p14",
+  				"name": "Eunice Kennedy Shriver (born Kennedy)"
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "p18",
+  				"name": "Patricia Lawford (born Kennedy)"
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "p20",
+  				"name": "Robert Francis \"Bobby\" Kennedy"
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "p77",
+  				"name": "Jean Ann Smith (born Kennedy)"
+  			}
+  		},
+  		{
+  			"child": {
+  				"id": "83",
+  				"name": "Edward Moore (Ted) Kennedy"
+  			}
+  		}
+  	]
+  }
+]

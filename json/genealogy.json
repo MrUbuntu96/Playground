@@ -1,0 +1,311 @@
+[
+  {
+    "__object_type" : "@@@person",
+  	"id": "individual-144530322-1000001",
+  	"name": "John Fitzgerald Kennedy",
+  	"is_alive": false,
+  	"first_name": "John Fitzgerald",
+  	"last_name": "Kennedy",
+  	"formatted_last_name": "Kennedy",
+  	"gender": "M",
+  	"birth_date": {
+  		"gedcom": "May 29 1917",
+  		"text": "May 29 1917",
+  		"date": "1917-05-29",
+  		"structured_date": {
+  			"first_date": {
+  				"day": 29,
+  				"month": 5,
+  				"year": 1917,
+  				"type": "exact",
+  				"class_name": "SingleDate"
+  			},
+  			"type": "exact",
+  			"class_name": "StructuredDate"
+  		},
+  		"class_name": "EventDate"
+  	},
+  	"birth_place": "Brookline, Massachusetts",
+  	"death_date": {
+  		"gedcom": "Nov 22 1963",
+  		"text": "Nov 22 1963",
+  		"date": "1963-11-22",
+  		"structured_date": {
+  			"first_date": {
+  				"day": 22,
+  				"month": 11,
+  				"year": 1963,
+  				"type": "exact",
+  				"class_name": "SingleDate"
+  			},
+  			"type": "exact",
+  			"class_name": "StructuredDate"
+  		},
+  		"class_name": "EventDate"
+  	},
+  	"is_privatized": false,
+  	"link": "https:\/\/www.myheritage.com\/person-1000001_144530322_144530322\/john-fitzgerald-kennedy",
+  	"link_in_tree": "https:\/\/www.myheritage.com\/site-family-tree-144530322\/demo-family-site?rootIndivudalID=1000001&familyTreeID=1",
+  	"spouse_in_families": [
+  		{
+  			"id": "family-144530322-1000001"
+  		}
+  	],
+  	"child_in_families": [
+  		{
+  			"family": {
+  				"id": "family-144530322-1000002"
+  			},
+  			"class_name": "ChildInFamily"
+  		}
+  	],
+  	"smartmatch_count": 0,
+  	"data_language": "EN",
+  	"personal_photo": {
+  		"id": "photo-144530322-2-1000003",
+  		"name": "John Fitzgerald Kennedy"
+  	},
+  	"tree": {
+  		"id": "tree-144530322-1",
+  		"name": "jfk"
+  	},
+  	"site": {
+  		"id": "site-144530322",
+  		"name": "Demo Family Site"
+  	},
+  	"age_group": "A",
+  	"age_group_in_years": "40's",
+  	"personal_photos_link": "https:\/\/www.myheritage.com\/photo-world\/144530322?tree_id=1&individual_id=1000001",
+  	"media_count": 101,
+  	"ignore_matches": false,
+  	"class_name": "Individual",
+  	"connections": {
+  		"immediate_family": "individual-144530322-1000001\/immediate_family",
+  		"close_family": "individual-144530322-1000001\/close_family",
+  		"events": "individual-144530322-1000001\/events",
+  		"child_in_families_connection": "individual-144530322-1000001\/child_in_families_connection",
+  		"spouse_in_families_connection": "individual-144530322-1000001\/spouse_in_families_connection",
+  		"tags": "individual-144530322-1000001\/tags",
+  		"media": "individual-144530322-1000001\/media",
+  		"citations": "individual-144530322-1000001\/citations",
+  		"notes": "individual-144530322-1000001\/notes",
+  		"smartmatches": "individual-144530322-1000001\/smartmatches",
+  		"matches": "individual-144530322-1000001\/matches",
+  		"dna_kits": "individual-144530322-1000001\/dna_kits",
+  		"dna_matches": "individual-144530322-1000001\/dna_matches",
+  		"invitations": "individual-144530322-1000001\/invitations"
+  	}
+  },
+
+
+  {
+    "__object_type" : "@@@person",
+    "id": "individual-144530322-1000002",
+  	"name": "Jacqueline Lee Kennedy Onassis (born Bouvier)",
+  	"is_alive": false,
+  	"first_name": "Jacqueline Lee",
+  	"last_name": "Bouvier",
+  	"formatted_last_name": "Kennedy Onassis (born Bouvier)",
+  	"gender": "F",
+  	"married_surname": "Kennedy Onassis",
+  	"birth_date": {
+  		"gedcom": "Jul 28 1929",
+  		"text": "July 28 1929",
+  		"date": "1929-07-28",
+  		"structured_date": {
+  			"first_date": {
+  				"day": 28,
+  				"month": 7,
+  				"year": 1929,
+  				"type": "exact",
+  				"class_name": "SingleDate"
+  			},
+  			"type": "exact",
+  			"class_name": "StructuredDate"
+  		},
+  		"class_name": "EventDate"
+  	},
+  	"death_date": {
+  		"gedcom": "May 19 1994",
+  		"text": "May 19 1994",
+  		"date": "1994-05-19",
+  		"structured_date": {
+  			"first_date": {
+  				"day": 19,
+  				"month": 5,
+  				"year": 1994,
+  				"type": "exact",
+  				"class_name": "SingleDate"
+  			},
+  			"type": "exact",
+  			"class_name": "StructuredDate"
+  		},
+  		"class_name": "EventDate"
+  	},
+  	"is_privatized": false,
+  	"link": "https:\/\/www.myheritage.com\/person-1000002_144530322_144530322\/jacqueline-lee-kennedy-onassis-born-bouvier",
+  	"link_in_tree": "https:\/\/www.myheritage.com\/site-family-tree-144530322\/demo-family-site?rootIndivudalID=1000002&familyTreeID=1",
+  	"spouse_in_families": [
+  		{
+  			"id": "family-144530322-1000001"
+  		}
+  	],
+  	"child_in_families": [
+  		{
+  			"family": {
+  				"id": "family-144530322-1000030"
+  			},
+  			"class_name": "ChildInFamily"
+  		}
+  	],
+  	"smartmatch_count": 0,
+  	"data_language": "EN",
+  	"personal_photo": {
+  		"id": "photo-144530322-2-1000101",
+  		"name": "Jacqueline Lee Kennedy Onassis [Bouvier]"
+  	},
+  	"tree": {
+  		"id": "tree-144530322-1",
+  		"name": "jfk"
+  	},
+  	"site": {
+  		"id": "site-144530322",
+  		"name": "Demo Family Site"
+  	},
+  	"age_group": "A",
+  	"age_group_in_years": "60's",
+  	"personal_photos_link": "https:\/\/www.myheritage.com\/photo-world\/144530322?tree_id=1&individual_id=1000002",
+  	"media_count": 31,
+  	"ignore_matches": false,
+  	"class_name": "Individual",
+  	"connections": {
+  		"immediate_family": "individual-144530322-1000002\/immediate_family",
+  		"close_family": "individual-144530322-1000002\/close_family",
+  		"events": "individual-144530322-1000002\/events",
+  		"child_in_families_connection": "individual-144530322-1000002\/child_in_families_connection",
+  		"spouse_in_families_connection": "individual-144530322-1000002\/spouse_in_families_connection",
+  		"tags": "individual-144530322-1000002\/tags",
+  		"media": "individual-144530322-1000002\/media",
+  		"citations": "individual-144530322-1000002\/citations",
+  		"notes": "individual-144530322-1000002\/notes",
+  		"smartmatches": "individual-144530322-1000002\/smartmatches",
+  		"matches": "individual-144530322-1000002\/matches",
+  		"dna_kits": "individual-144530322-1000002\/dna_kits",
+  		"dna_matches": "individual-144530322-1000002\/dna_matches",
+  		"invitations": "individual-144530322-1000002\/invitations"
+  	}
+  },
+
+
+  {
+    "__object_type": "@@@family",
+  	"id": "family-144530322-1000002",
+  	"status": "married",
+  	"husband": {
+  		"id": "individual-144530322-1000005",
+  		"name": "Joseph Patrick Kennedy"
+  	},
+  	"wife": {
+  		"id": "individual-144530322-1000006",
+  		"name": "Rose Kennedy (born Fitzgerald)"
+  	},
+  	"link": "https:\/\/www.myheritage.com\/family-1_1000002_144530322_144530322\/kennedy-joseph-patrick-kennedy-rose-kennedy-born-fitzgerald",
+  	"marriage_date": {
+  		"gedcom": "1914",
+  		"text": "1914",
+  		"date": "1914",
+  		"structured_date": {
+  			"first_date": {
+  				"year": 1914,
+  				"type": "exact",
+  				"class_name": "SingleDate"
+  			},
+  			"type": "exact",
+  			"class_name": "StructuredDate"
+  		},
+  		"class_name": "EventDate"
+  	},
+  	"children": [
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000010",
+  				"name": "Joseph Patrick Kennedy, Jr."
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000001",
+  				"name": "John Fitzgerald Kennedy"
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000011",
+  				"name": "Rosemary Kennedy"
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000012",
+  				"name": "Kathleen (Kick) Agnes \"Kick\" Cavendish (born Kennedy)"
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000014",
+  				"name": "Eunice Kennedy Shriver (born Kennedy)"
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000018",
+  				"name": "Patricia Lawford (born Kennedy)"
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000020",
+  				"name": "Robert Francis \"Bobby\" Kennedy"
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000077",
+  				"name": "Jean Ann Smith (born Kennedy)"
+  			},
+  			"class_name": "ChildInFamily"
+  		},
+  		{
+  			"child": {
+  				"id": "individual-144530322-1000083",
+  				"name": "Edward Moore (Ted) Kennedy"
+  			},
+  			"class_name": "ChildInFamily"
+  		}
+  	],
+  	"tree": {
+  		"id": "tree-144530322-1",
+  		"name": "jfk"
+  	},
+  	"site": {
+  		"id": "site-144530322",
+  		"name": "Demo Family Site"
+  	},
+  	"class_name": "Family",
+  	"connections": {
+  		"children_connection": "family-144530322-1000002\/children_connection",
+  		"media": "family-144530322-1000002\/media",
+  		"events": "family-144530322-1000002\/events",
+  		"citations": "family-144530322-1000002\/citations",
+  		"notes": "family-144530322-1000002\/notes",
+  		"sub_tree": "family-144530322-1000002\/sub_tree"
+  	}
+  }
+]
