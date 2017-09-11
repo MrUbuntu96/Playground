@@ -21,31 +21,24 @@ JSON decoding
     null	=>  None
 '''
 
-INDEX = '_i_'
-
-Instance = namedtuple('Pair', ['ref', 'ilist'])
+Instance = namedtuple('Pair', ['ref', 'i'])
 
 class JSON_Processor:
     '''
         file ==> input_dict (Ordered)
-        input_dict ==> flattened_tree (Ordered)
-        input_dict ==> typed_values
-
+        input_dict ==> flat_tree (Ordered)
+        input_dict ==> data_array
     '''
     def __init__(self):
         self.top_object = ''
-        self.file_content = ''
         self.input_dict = OrderedDict
         self.flat_tree  = OrderedDict()
         self.data_array = defaultdict(list)
-        self.dfs_level = 0
-
 
     def reset(self, filename):
         self.__init__()
         self.top_object = os.path.basename(filename).split('.')[0] # filename w/o extension
-        self.file_content = open(filename).read()
-        self.input_dict = json.loads(self.file_content, object_pairs_hook = OrderedDict)
+        self.input_dict = json.loads(open(filename).read(), object_pairs_hook = OrderedDict)
 
     def run(self):
 
@@ -53,37 +46,29 @@ class JSON_Processor:
             Parse JSON file into a Dictionary
             Use DFS algorithm
         '''
-        def is_str(s):
-            return True if type(s) in [str, unicode] else False
+        def path_with_index(s):
+            return ("/%s" % s) if type(s) in [str, unicode] else ("[%d]" % s)
+        def path_no_index(s):
+            return ("/%s" % s) if type(s) in [str, unicode] else ""
 
-        def add_key_value_pair(path, value, ilist):
+        def add_key_value_pair(path, value, i_arr):
             vref = [value]
             ''' Store reference to vaLue in flattened tree'''
-            key = "".join(("/%s" % x) if is_str(x) else ("[%d]" % x) for x in path)
+            key = "".join(path_with_index(x) for x in path)
             self.flat_tree[key] = vref
             ''' Store reference in typed_values '''
-            vtype = "".join(("/%s" % x) if is_str(x) else "" for x in path)
-            self.data_array[vtype].append(Instance(ref=vref, ilist=ilist))
+            vtype = "".join(path_no_index(x) for x in path)
+            self.data_array[vtype].append(Instance(ref=vref, i=i_arr))
 
-        def parse_tree_to_arrays(obj, obj_path=[], ilist=[]):
-
-            self.dfs_level += 1
+        def parse_tree_to_arrays(obj, obj_path=[], i_arr=[]):
             if type(obj) == list:
                 for i, elem in enumerate(obj):
-                    parse_tree_to_arrays(elem, obj_path + [i], ilist + [i])
+                    parse_tree_to_arrays(elem, obj_path + [i], i_arr + [i])
             elif type(obj) in [OrderedDict]:
                 for key, val in obj.items():
-                    parse_tree_to_arrays(val, obj_path + [key], ilist)
+                    parse_tree_to_arrays(val, obj_path + [key], i_arr)
             else:
-                add_key_value_pair(obj_path, obj, ilist)
-
-            #self.dfs_level -=1
-            #if self.dfs_level == 0:
-            #    print 'DONE'
-            #    return parse_tree
-
-            #for i, elem in enumerate(data_array):
-            #recursive_print(elem, obj_path + ["[%d]" % i])
+                add_key_value_pair(obj_path, obj, i_arr)
 
         ''' Parse the JSON tree and generate flat_tree, data_tree '''
         parse_tree_to_arrays(self.input_dict, [self.top_object])
