@@ -93,8 +93,7 @@ class JSON_Processor:
 # main
 #------------
 
-if __name__ == '__main__':
-
+def main():
     reload(sys)
     sys.setdefaultencoding('utf-8')
 
@@ -109,3 +108,7 @@ if __name__ == '__main__':
     else:
         print 'missing filename. exiting .....'
         print
+
+
+if __name__ == '__main__':
+    main()
