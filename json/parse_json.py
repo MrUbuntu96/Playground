@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import json, sys, os
+import json, sys, os, traceback
 from collections import OrderedDict, defaultdict
 
 '''
@@ -116,19 +116,18 @@ def main():
     reload(sys)
     sys.setdefaultencoding('utf-8')
 
-    if len(sys.argv) >= 2:
-        try:
-            processor = JSON_Processor()
-            processor.reset(sys.argv[1])
-            processor.run()
-            processor.print_output()
-        except ValueError as e:
-            print e
-            print 'Program exited'
-    else:
-        print 'missing filename. exiting .....'
-        print
+    processor = JSON_Processor()
+    processor.reset(sys.argv[1])
+    processor.run()
+    processor.print_output()
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except (ValueError, Exception) as e:
+        #print e
+        print
+        print traceback.format_exc()
+        print 'Duh!!! Program exited'
+        print
