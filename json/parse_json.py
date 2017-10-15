@@ -5,19 +5,11 @@ import json, sys, os, traceback
 from collections import OrderedDict, defaultdict
 
 '''
+What this script does?
+    1) load a JSON file
+    2) output an equivalent flat tree structure of the file
 
-JSON unmarshalling rules
-
-    JSON	    Python
-    -------------------
-    object	=>  dict
-    array	=>  list
-    string	=>  str
-    int     =>  int
-    real	=>  float
-    true	=>  True
-    false	=>  False
-    null	=>  None
+Sample run: ./parse_json.py genealogy.json
 '''
 
 class JSON_Processor:
@@ -30,6 +22,17 @@ class JSON_Processor:
             Key include the path from root
             All values for the same keys are stored in a list
             >>> input_dict ==> data_map
+        4) JSON unmarshalling rules
+                JSON	    Python
+                -------------------
+                object	=>  dict
+                array	=>  list
+                string	=>  str
+                int     =>  int
+                real	=>  float
+                true	=>  True
+                false	=>  False
+                null	=>  None
     '''
     def __init__(self):
         self.top_object = ''
